@@ -1,0 +1,17 @@
+left = 0
+right = длина(arr) -1
+while left < right
+	middle = (left + right) / 2
+if arr[middle] = x 
+	нашли! выходим из цикла
+else if arr[middle] > x
+	right = middle -1 //ищемслева
+else if arr[middle] < x
+	left = middle + 1  //ищемсправа
+if arr[left] = x
+	нашли!
+
+if нашли
+	print “элементесть”
+else
+	print “элементанет”
