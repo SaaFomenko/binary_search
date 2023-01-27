@@ -1,3 +1,4 @@
+#include <iostream>
 #include "binary_search.h"
 
 namespace binary_search {
@@ -11,10 +12,34 @@ namespace binary_search {
 		while(left < right)
 		{
 			int middle = (left + right) / 2;
+			int next = middle;
 
-			if (arr[middle] == point)
+			bool check = arr[middle] == point;
+			while (check)
 			{
-				return right - middle;
+				if (arr[next] < arr[next + 1])
+				{
+					return right - next;
+				}
+
+				next += 1;
+				check = next < size;
+			}
+			
+			if (point < arr[middle])
+			{
+				right = middle - 1;
+			}
+			else
+			{
+				left = middle + 1;
+			}
+
+			std::cout << left << " vs " << right << std::endl;
+
+			if (left + 1 == right)
+			{
+				return (size - 1) - left;
 			}
 		}
 
