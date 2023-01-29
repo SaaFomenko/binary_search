@@ -12,7 +12,7 @@ namespace binary_search {
 		while(left < right)
 		{
 			if (point >= arr[size - 1]) return 0;
-			if (point >= arr[0]) return size - 1;
+			if (point <= arr[0]) return size - 1;
 
 			int middle = (left + right) / 2;
 			int next = middle;
