@@ -11,6 +11,8 @@ namespace binary_search {
 
 		while(left < right)
 		{
+			if (point >= arr[size - 1]) return 0;
+
 			int middle = (left + right) / 2;
 			int next = middle;
 
@@ -19,27 +21,31 @@ namespace binary_search {
 			{
 				if (arr[next] < arr[next + 1])
 				{
-					return right - next;
+					return (size - 1) - next;
 				}
 
 				next += 1;
 				check = next < size;
 			}
-			
-			if (point < arr[middle])
+
+			check = point < arr[middle];
+
+			if (check)
 			{
 				right = middle - 1;
+
 			}
 			else
 			{
 				left = middle + 1;
 			}
 
-			std::cout << left << " vs " << right << std::endl;
 
-			if (left + 1 == right)
+			if (left >= right)
 			{
-				return (size - 1) - left;
+				if (point > arr[middle]) return (size - 1) - middle;
+
+				return (size - 1) - right;
 			}
 		}
 
